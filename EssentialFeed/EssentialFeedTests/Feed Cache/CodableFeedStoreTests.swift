@@ -86,7 +86,6 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
 		let insertionError = insert((uniqueImageFeed().local, Date()), to: sut)
 		
 		XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
-		expect(sut, toRetrieve: .empty)
 	}
     
     func test_insert_hasNoSideEffectsOnInsertionError() {
