@@ -8,7 +8,7 @@
 
 import CoreData
 
-internal extension NSPersistentContainer {
+extension NSPersistentContainer {
     static func load(modelName name: String, model: NSManagedObjectModel, url: URL) throws -> NSPersistentContainer {
         let storeDescription = NSPersistentStoreDescription(url: url)
         let container = NSPersistentContainer(name: name, managedObjectModel: model)
@@ -22,7 +22,7 @@ internal extension NSPersistentContainer {
     }
 }
 
-internal extension NSManagedObjectModel {
+extension NSManagedObjectModel {
     static func with(name: String, in bundle: Bundle) -> NSManagedObjectModel? {
         return bundle
             .url(forResource: name, withExtension: "momd")
