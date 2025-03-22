@@ -18,5 +18,5 @@ final class FeedCachePolicy {
 			return false
 		}
 		return date < maxCacheAge
-	}
+	} 
 }
