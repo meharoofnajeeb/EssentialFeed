@@ -92,10 +92,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_viewIsAppearing_hidesLoadingIndicatorOnLoaderCompletion() {
         let (sut, loader) = makeSUT()
-        sut.loadViewIfNeeded()
-        sut.replaceRefreshControlWithFakeForiOS17Support()
-        sut.beginAppearanceTransition(true, animated: false)
-        sut.endAppearanceTransition()
+        simulateCallingViewDidLoadAndViewIsAppearing(on: sut)
         
         loader.completeFeedLoading()
         
@@ -104,10 +101,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_pullToRefresh_showsLoadingIndicator() {
         let (sut, loader) = makeSUT()
-        sut.loadViewIfNeeded()
-        sut.replaceRefreshControlWithFakeForiOS17Support()
-        sut.beginAppearanceTransition(true, animated: false)
-        sut.endAppearanceTransition()
+        simulateCallingViewDidLoadAndViewIsAppearing(on: sut)
         loader.completeFeedLoading()
         
         sut.refreshControl?.simulatePullToRefresh()
@@ -117,10 +111,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
         let (sut, loader) = makeSUT()
-        sut.loadViewIfNeeded()
-        sut.replaceRefreshControlWithFakeForiOS17Support()
-        sut.beginAppearanceTransition(true, animated: false)
-        sut.endAppearanceTransition()
+        simulateCallingViewDidLoadAndViewIsAppearing(on: sut)
         loader.completeFeedLoading()
         
         sut.refreshControl?.simulatePullToRefresh()
@@ -136,6 +127,13 @@ final class FeedViewControllerTests: XCTestCase {
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
+    }
+    
+    private func simulateCallingViewDidLoadAndViewIsAppearing(on sut: FeedViewController) {
+        sut.loadViewIfNeeded()
+        sut.replaceRefreshControlWithFakeForiOS17Support()
+        sut.beginAppearanceTransition(true, animated: false)
+        sut.endAppearanceTransition()
     }
     
     class LoaderSpy: FeedLoader {
