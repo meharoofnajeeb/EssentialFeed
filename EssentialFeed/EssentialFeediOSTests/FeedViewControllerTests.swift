@@ -92,13 +92,6 @@ final class FeedViewControllerTests: XCTestCase {
         return (sut, loader)
     }
     
-    private func simulateCallingViewDidLoadAndViewIsAppearing(on sut: FeedViewController) {
-        sut.loadViewIfNeeded()
-        sut.replaceRefreshControlWithFakeForiOS17Support()
-        sut.beginAppearanceTransition(true, animated: false)
-        sut.endAppearanceTransition()
-    }
-    
     class LoaderSpy: FeedLoader {
         private var completions = [(FeedLoader.Result) -> Void]()
         var loadFeedCallCount: Int {
