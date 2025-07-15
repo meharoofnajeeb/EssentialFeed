@@ -8,40 +8,7 @@
 
 import XCTest
 import EssentialFeed
-
-final class FeedViewController: UITableViewController {
-    private var onViewIsAppearing: (() -> Void)?
-    private var loader: FeedLoader?
-    public convenience init(loader: FeedLoader) {
-        self.init()
-        self.loader = loader
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        
-        onViewIsAppearing = {
-            self.refresh()
-            self.onViewIsAppearing = nil
-        }
-    }
-    
-    override func viewIsAppearing(_ animated: Bool) {
-        super.viewIsAppearing(animated)
-        
-        onViewIsAppearing?()
-    }
-    
-    @objc private func refresh() {
-        refreshControl?.beginRefreshing()
-        loader?.load { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
-        }
-    }
-}
+import EssentialFeediOS
 
 final class FeedViewControllerTests: XCTestCase {
     
