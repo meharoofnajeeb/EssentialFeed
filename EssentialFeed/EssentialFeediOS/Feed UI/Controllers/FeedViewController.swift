@@ -13,7 +13,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     private var onViewIsAppearing: (() -> Void)?
     public var refreshController: FeedRefreshViewController?
     private var imageLoader: FeedImageDataLoader?
-    private var tasks: [IndexPath: FeedImageDataTask] = [:]
+    private var tasks: [IndexPath: FeedImageDataLoaderTask] = [:]
     private var tableModel = [FeedImage]() {
         didSet { tableView.reloadData() }
     }
