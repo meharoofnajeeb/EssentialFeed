@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1630"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -48,7 +48,7 @@
          </BuildableReference>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FE093482D91168800766957"
+            BlueprintIdentifier = "5F8833CD2E260684001B7021"
             BuildableName = "EssentialFeediOS.framework"
             BlueprintName = "EssentialFeediOS"
             ReferencedContainer = "container:EssentialFeed.xcodeproj">
@@ -94,7 +94,7 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FE0934F2D91168800766957"
+               BlueprintIdentifier = "5F8833D52E260684001B7021"
                BuildableName = "EssentialFeediOSTests.xctest"
                BlueprintName = "EssentialFeediOSTests"
                ReferencedContainer = "container:EssentialFeed.xcodeproj">
